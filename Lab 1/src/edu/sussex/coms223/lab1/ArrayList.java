@@ -17,20 +17,20 @@ public class ArrayList<E> implements List<E> {
 
 	@Override
 	public boolean remove(E e) {
-		int removed = 0;
-		for (int i = 0; i < data.length; i++) {
+		int index = -1;
+		for (int i = 0; i < data.length && index == -1; i++) {
 			if (data[i].equals(e))
-				removed++;
+				index = i;
 		}
-		if (removed > 0) {
-			Object[] newData = new Object[data.length - removed];
-			for (int i = 0, j = 0; i < data.length; i++) {
-				if (!data[i].equals(e))
-					newData[j++] = data[i];
-			}
+		if (index != -1) {
+			Object[] newData = new Object[data.length - 1];
+			for (int i = 0; i < index; i++)
+				newData[i] = data[i];
+			for (int i = index + 1; i < data.length; i++)
+				newData[i - 1] = data[i];
 			data = newData;
 		}
-		return removed > 0;
+		return index != -1;
 	}
 
 	@Override
