@@ -3,20 +3,20 @@ package edu.sussex.coms223.lab1;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Random;
+import java.util.stream.Stream;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 class ListTest {
-	static List<Integer> l = null;
 
-	@BeforeEach
-	void setUp() throws Exception {
-		l.clear();
+	public static Stream<List<Integer>> lists() {
+		return Stream.of(new ArrayList<>());
 	}
 
-	@Test
-	void testAdd() {
+	@ParameterizedTest
+	@MethodSource("lists")
+	void testAdd(List<Integer> l) {
 		assertEquals(0, l.size());
 		assertEquals(true, l.add(0));
 		assertEquals(1, l.size());
@@ -26,8 +26,9 @@ class ListTest {
 		});
 	}
 
-	@Test
-	void testGet() {
+	@ParameterizedTest
+	@MethodSource("lists")
+	void testGet(List<Integer> l) {
 		assertEquals(0, l.size());
 		assertEquals(true, l.add(0));
 		assertEquals(1, l.size());
@@ -47,8 +48,9 @@ class ListTest {
 		});
 	}
 
-	@Test
-	void testRemove() {
+	@ParameterizedTest
+	@MethodSource("lists")
+	void testRemove(List<Integer> l) {
 		assertEquals(0, l.size());
 		assertEquals(true, l.add(0));
 		assertEquals(1, l.size());
@@ -58,8 +60,9 @@ class ListTest {
 		assertEquals(false, l.remove(0));
 	}
 
-	@Test
-	void testPerformance() {
+	@ParameterizedTest
+	@MethodSource("lists")
+	void testPerformance(List<Integer> l) {
 		final int ITERATIONS = 1000;
 		for (int i = 0; i < ITERATIONS; i++) {
 			final int COUNT = 1000;
@@ -84,5 +87,4 @@ class ListTest {
 			assertEquals(COUNT - removed, l.size());
 		}
 	}
-
 }
