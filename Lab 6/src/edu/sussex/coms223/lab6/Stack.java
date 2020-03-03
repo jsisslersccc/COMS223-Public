@@ -31,7 +31,8 @@ public class Stack<T> extends ArrayList<T> {
 	public void push(T item) {
 		// TODO 2: add the item passed as a parameter using the add function inherited
 		// from the ArrayList super class. Hint: it is legal but unnecessary to use the
-		// syntax "super." to call the add function.
+		// syntax "super." or "this." to call the add function.
+
 	}
 
 	/**
@@ -43,6 +44,7 @@ public class Stack<T> extends ArrayList<T> {
 	 */
 	public T pop() {
 		// TODO 3: if the stack is empty, throw a NoSuchElementException.
+
 
 		// TODO 4: replace the "return null;" statement with code that removes the last
 		// item added to the stack and returns that item to the caller. Hint: the first
@@ -60,6 +62,7 @@ public class Stack<T> extends ArrayList<T> {
 		// TODO 5: add an if statement that checks if the stack is empty and if so
 		// returns null.
 
+
 		// TODO 6: set the cursor to the index of the last item added (pushed) onto the
 		// stack.
 
@@ -76,6 +79,7 @@ public class Stack<T> extends ArrayList<T> {
 	 */
 	public T next() {
 		// TODO 8: add an if statement that returns null if the cursor is <= 0
+
 
 		// TODO 9: decrement the cursor and then use it to return the next item on the
 		// stack replacing the "return null;" statement.

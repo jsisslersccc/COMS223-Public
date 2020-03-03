@@ -14,7 +14,7 @@ public class PostfixDriver {
 	 * List of commands that may be issued to the driver.
 	 *
 	 */
-	// TODO 18: add new runsteps command to the Command enum
+	// TODO 15: add new runsteps command to the Command enum
 	public enum Command {
 		runall, runsome, restart, quit
 	}
@@ -106,8 +106,9 @@ public class PostfixDriver {
 			case restart:
 				startEval();
 				break;
-			// TODO 19: add case for runsteps command, call runSteps method on myEvaluator
+			// TODO 16: add case for runsteps command, call runSteps method on myEvaluator
 			// instance passing pw as parameter.
+
 			default:
 				break;
 			}

@@ -15,8 +15,6 @@ class StackKeeper {
 	/**
 	 * The set of admissible binary operators.
 	 */
-	// TODO 10: add new exponentiation operator '^' to the operators list of array
-	// initializers
 	static final char[] operators = { '+', '-', '*', '/' };
 
 	/**
@@ -82,8 +80,6 @@ class StackKeeper {
 		case '/':
 			tempval = nextval / topval;
 			break;
-		// TODO 11: add case statement to implement exponentiation operator '^'. Hint:
-		// implement using Math.pow function.
 		}
 
 		evalStack.push(tempval);

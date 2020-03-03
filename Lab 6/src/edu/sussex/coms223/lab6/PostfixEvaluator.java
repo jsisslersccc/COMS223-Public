@@ -72,19 +72,24 @@ public class PostfixEvaluator {
 	 * @throws IllegalExpressionException If expression is not legal postfix.
 	 */
 	public float runSteps(PrintWriter pw) throws IllegalExpressionException {
-		// TODO 12: add a while loop that iterates while exprTok has more tokens.
-		// TODO 13: within the while loop, call runSome with the parameters 1 and pw
-		// which forces a single step to be executed.
-		// TODO 14: within the while loop, after the call the runSome, add a call to
-		// printStatus passing pw.
-		// TODO 15: within the while loop, after the call the printStatus, call the
-		// flush method on pw to force output to the console.
-		
-		// TODO 16: add an if statement to check if size of postStack is greater than
+		while (exprTok.hasMoreTokens()) {
+			// TODO 10: within the while loop, call runSome with the parameters 1 and pw
+			// which forces a single step to be executed.
+
+			// TODO 11: within the while loop, after the call the runSome, add a call to
+			// printStatus passing pw.
+
+			// TODO 12: within the while loop, after the call the printStatus, call the
+			// flush method on pw to force output to the console.
+
+		}
+
+		// TODO 13: add an if statement to check if size of postStack is greater than
 		// 1, if so throw IllegalExpressionException with the message "insufficient
 		// operators".
-		
-		// TODO 17: replace the "return 0;" statement with a return statement that
+
+
+		// TODO 14: replace the "return 0;" statement with a return statement that
 		// returns the top of the postStack stack.
 		return 0;
 	}
