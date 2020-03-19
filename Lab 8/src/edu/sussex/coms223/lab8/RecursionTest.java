@@ -37,7 +37,6 @@ class RecursionTest {
 		Node<Integer> head = new Node<>(0);
 		head.next = new Node<>(1);
 		Recursion.insert(head, new Node<>(2));
-		assertTrue(head.next.next != null);
 		assertEquals(2, head.next.next.value);
 		assertNull(head.next.next.next);
 		assertThrows(IllegalArgumentException.class, () -> {
