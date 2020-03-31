@@ -16,7 +16,7 @@ public class BinaryTreeDriver {
 	 *
 	 */
 	public enum Action {
-		create, makeroot, attach, detach, move, display, readfile, showdata, quit
+		create, makeroot, attach, detach, move, display, readfile, showdata, quit, print
 	}
 
 	/**
@@ -323,6 +323,41 @@ public class BinaryTreeDriver {
 		else
 			postorder(dispTree);
 	}
+	
+	/**
+	 * Prints the tree.
+	 *
+	 * @param <T>  the generic type
+	 * @param tree the tree
+	 */
+	static <T> void printTree(BinaryTree<T> tree) {
+		printTree(tree.right, true, "");
+		System.out.println(tree.data);
+		printTree(tree.left, false, "");
+	}
+
+	/**
+	 * Prints the tree.
+	 *
+	 * @param <T>     the generic type
+	 * @param tree    the tree
+	 * @param isRight the is right
+	 * @param indent  the indent
+	 */
+	static <T> void printTree(BinaryTree<T> tree, boolean isRight, String indent) {
+		if (tree == null)
+			return;
+		printTree(tree.right, true, indent + (isRight ? "        " : " |      "));
+		System.out.print(indent);
+		if (isRight) {
+			System.out.print(" /");
+		} else {
+			System.out.print(" \\");
+		}
+		System.out.print("----- ");
+		System.out.println(tree.data);
+		printTree(tree.left, false, indent + (isRight ? " |      " : "        "));
+	}
 
 	/**
 	 * Entry point into the driver.
@@ -359,6 +394,9 @@ public class BinaryTreeDriver {
 				break;
 			case showdata:
 				System.out.println(myTree.getData());
+				break;
+			case print:
+				printTree(myTree);
 				break;
 			default:
 				break;

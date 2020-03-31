@@ -10,41 +10,6 @@ import org.junit.jupiter.api.Test;
 class BinaryTreeTest {
 
 	/**
-	 * Prints the tree.
-	 *
-	 * @param <T>  the generic type
-	 * @param tree the tree
-	 */
-	<T> void printTree(BinaryTree<T> tree) {
-		printTree(tree.right, true, "");
-		System.out.println(tree.data);
-		printTree(tree.left, false, "");
-	}
-
-	/**
-	 * Prints the tree.
-	 *
-	 * @param <T>     the generic type
-	 * @param tree    the tree
-	 * @param isRight the is right
-	 * @param indent  the indent
-	 */
-	<T> void printTree(BinaryTree<T> tree, boolean isRight, String indent) {
-		if (tree == null)
-			return;
-		printTree(tree.right, true, indent + (isRight ? "        " : " |      "));
-		System.out.print(indent);
-		if (isRight) {
-			System.out.print(" /");
-		} else {
-			System.out.print(" \\");
-		}
-		System.out.print("----- ");
-		System.out.println(tree.data);
-		printTree(tree.left, false, indent + (isRight ? " |      " : "        "));
-	}
-
-	/**
 	 * Clone a binary tree, ignoring parent field and reusing data reference.
 	 *
 	 * @param <T>    the generic type
@@ -177,7 +142,7 @@ class BinaryTreeTest {
 		Stack<Integer> stack = new Stack<Integer>();
 		
 		// TODO 3: Optional, for 5 points extra-credit, implement this class and
-		// uncomment the unit test below.
+		// uncomment assertEquals line in testEvaluationVisitor method below.
 
 	}
 
@@ -260,21 +225,20 @@ class BinaryTreeTest {
 		assertEquals(3, height(BinaryTreeDriver.myTree));
 		assertFalse(heightBalanced(BinaryTreeDriver.myTree));
 	}
-
-	// Uncomment if implementing the extra-credit problem.
 	
-	/*
 	@Test
 	void testEvaluationVisitor() throws IOException {
 		String[] inorder = { "1", "+", "3", "-", "5", "+", "7", "*", "10" };
 		String[] preorder = { "+", "1", "*", "-", "3", "+", "5", "7", "10" };
 
 		BinaryTree<String> tree = BinaryTreeDriver.buildTree(preorder, 0, inorder, 0, preorder.length - 1);
+		BinaryTreeDriver.printTree(tree);
 		EvaluationVisitor visitor = new EvaluationVisitor();
 		postorder(tree, visitor);
-		assertEquals(-89, visitor.stack.pop());
+		
+		// Uncomment if doing extra-credit by implementing EvaluationVisitor.
+		//assertEquals(-89, visitor.stack.pop());
 	}
-	*/
 
 	@Test
 	void testMirrorImage() throws IOException {
@@ -284,9 +248,9 @@ class BinaryTreeTest {
 		BinaryTree<String> tree = BinaryTreeDriver.buildTree(preorder, 0, inorder, 0, preorder.length - 1);
 		BinaryTree<String> mirrorImage = mirrorImage(clone(tree));
 		System.out.println("tree:\n");
-		printTree(tree);
+		BinaryTreeDriver.printTree(tree);
 		System.out.println("\nmirror image:\n");
-		printTree(mirrorImage);
+		BinaryTreeDriver.printTree(mirrorImage);
 
 		assertEquals(tree.left.data, mirrorImage.right.data);
 		assertEquals(tree.left.left.data, mirrorImage.right.right.data);
